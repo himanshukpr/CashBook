@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="post" id="MainForm">
+    <h2>OSR WorldWide</h2>
+    <input type="date" id="todayDate" name="date">
+    <input type="text" name="to_from" placeholder="To/ From ">
+    <input type="number" name="amt" placeholder="Amount">
+    <select name="rece_pay">
+        <option>Recept</option>
+        <option>Payment</option>
+    </select>
+    <select name="mode">
+        <option>Cash</option>
+        <option>IDFC Bank</option>
+        <option>DCB Bank</option>
+        <option>Bank</option>
+    </select>
+    <textarea name="des" placeholder="Description"></textarea>
+
+    <input type="submit" id="sub" class="sub">
+    <input type="button" class="sub" onclick="file_open()" value="Entries">
+</form>
+ <script>
+  document.getElementById("todayDate").valueAsDate = new Date();
+
+  let form = document.querySelector("form");
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.querySelector("#sub").value = "Submiting..";
+            let data = new FormData(form);
+            fetch('https://script.google.com/macros/s/AKfycbys-WJUGHfPfQOdD-BlSzhVqtD5jM6_7ZSKQ6wRKHP4SUtMFgZ3G3_JMdMjvCVNYQ/exec', {
+                    method: "POST",
+                    body: data
+                })
+                .then(res => res.text())
+                .then(dt => {
+                    //document.querySelector("#msg").innerHTML = data;
+                    alert("The Data has been sent Stored...");
+                    document.querySelector("#sub").value = "Submit";
+                    location.reload();
+                });
+            })
+
+            function file_open(){
+                window.location.href="Preview.html";
+            }
+ </script>
+</body>
+</html>

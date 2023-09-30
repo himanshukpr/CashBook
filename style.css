@@ -1,0 +1,40 @@
+*{
+    transition: 0.2s;
+}
+#MainForm{
+    border-radius: 20px;
+    padding: 30px 10px;
+    margin: auto;
+    border: 2px solid black;
+}
+#MainForm *{
+    text-transform:uppercase;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px black solid ;
+    border-radius: 2px;
+    margin: 20px auto;
+    display: block;
+    color: black;
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+}
+#MainForm .sub{
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+#MainForm h2{
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 30px;
+    border: none;
+}
+
+#MainForm *:focus{
+    border: 2px solid rgb(39, 154, 255);
+    outline: none;
+    border-radius: 5px;
+}
